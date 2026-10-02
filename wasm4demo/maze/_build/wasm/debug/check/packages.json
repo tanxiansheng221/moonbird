@@ -1,0 +1,288 @@
+{
+  "source_dir": "E:\\xiangmu2\\wasm4demo\\maze",
+  "name": "maze",
+  "packages": [
+    {
+      "is-main": false,
+      "is-third-party": false,
+      "root-path": "E:\\xiangmu2\\wasm4demo\\maze",
+      "root": "maze",
+      "rel": "",
+      "files": {
+        "E:\\xiangmu2\\wasm4demo\\maze\\game.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "E:\\xiangmu2\\wasm4demo\\maze\\main.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "wbtest-files": {},
+      "test-files": {},
+      "mbt-md-files": {},
+      "deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "C:\\Users\\秦川\\.moon\\lib\\core\\prelude"
+        },
+        {
+          "path": "moonbitlang/wasm4",
+          "alias": "wasm4",
+          "fspath": "E:\\xiangmu2\\wasm4demo\\wasm4"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "C:\\Users\\秦川\\.moon\\lib\\core\\prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "C:\\Users\\秦川\\.moon\\lib\\core\\prelude"
+        }
+      ],
+      "artifact": "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\maze.mi",
+      "check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "E:\\xiangmu2\\wasm4demo\\maze\\game.mbt",
+        "E:\\xiangmu2\\wasm4demo\\maze\\main.mbt",
+        "-o",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\maze.mi",
+        "-pkg",
+        "maze",
+        "-pkg-type",
+        "library",
+        "-std-path",
+        "C:\\Users\\秦川\\.moon\\lib\\core\\_build\\wasm\\release\\bundle",
+        "-i",
+        "C:\\Users\\秦川\\.moon\\lib\\core\\_build\\wasm\\release\\bundle\\prelude\\prelude.mi:prelude",
+        "-i",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\.mooncakes\\moonbitlang\\wasm4\\wasm4.mi:wasm4",
+        "-pkg-sources",
+        "maze:E:\\xiangmu2\\wasm4demo\\maze",
+        "-target",
+        "wasm",
+        "-workspace-path",
+        "E:\\xiangmu2\\wasm4demo\\maze",
+        "-all-pkgs",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\all_pkgs.json"
+      ],
+      "wbtest-check-command": null,
+      "test-check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "-doctest-only",
+        "E:\\xiangmu2\\wasm4demo\\maze\\game.mbt",
+        "-doctest-only",
+        "E:\\xiangmu2\\wasm4demo\\maze\\main.mbt",
+        "-include-doctests",
+        "-o",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\maze.blackbox_test.mi",
+        "-pkg",
+        "maze_blackbox_test",
+        "-pkg-type",
+        "library",
+        "-std-path",
+        "C:\\Users\\秦川\\.moon\\lib\\core\\_build\\wasm\\release\\bundle",
+        "-i",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\maze.mi:maze",
+        "-i",
+        "C:\\Users\\秦川\\.moon\\lib\\core\\_build\\wasm\\release\\bundle\\prelude\\prelude.mi:prelude",
+        "-i",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\.mooncakes\\moonbitlang\\wasm4\\wasm4.mi:wasm4",
+        "-pkg-sources",
+        "maze_blackbox_test:E:\\xiangmu2\\wasm4demo\\maze",
+        "-target",
+        "wasm",
+        "-blackbox-test",
+        "-workspace-path",
+        "E:\\xiangmu2\\wasm4demo\\maze",
+        "-all-pkgs",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\all_pkgs.json"
+      ],
+      "supported-targets": [
+        "Wasm",
+        "WasmGC",
+        "Js",
+        "Native",
+        "LLVM"
+      ]
+    },
+    {
+      "is-main": false,
+      "is-third-party": true,
+      "root-path": "E:\\xiangmu2\\wasm4demo\\wasm4",
+      "root": "moonbitlang/wasm4",
+      "rel": "",
+      "files": {
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\ffi.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\ffi.wasm-gc.mbt": {
+          "backend": [
+            "WasmGC"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\ffi.wasm.mbt": {
+          "backend": [
+            "Wasm"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\function.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\memory.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\utils.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "wbtest-files": {},
+      "test-files": {},
+      "mbt-md-files": {},
+      "deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "C:\\Users\\秦川\\.moon\\lib\\core\\prelude"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "C:\\Users\\秦川\\.moon\\lib\\core\\prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "C:\\Users\\秦川\\.moon\\lib\\core\\prelude"
+        }
+      ],
+      "artifact": "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\.mooncakes\\moonbitlang\\wasm4\\wasm4.mi",
+      "check-command": [
+        "check",
+        "-error-format",
+        "json",
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\ffi.mbt",
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\ffi.wasm.mbt",
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\function.mbt",
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\memory.mbt",
+        "E:\\xiangmu2\\wasm4demo\\wasm4\\utils.mbt",
+        "-w",
+        "-a",
+        "-o",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\.mooncakes\\moonbitlang\\wasm4\\wasm4.mi",
+        "-pkg",
+        "moonbitlang/wasm4",
+        "-pkg-type",
+        "library",
+        "-std-path",
+        "C:\\Users\\秦川\\.moon\\lib\\core\\_build\\wasm\\release\\bundle",
+        "-i",
+        "C:\\Users\\秦川\\.moon\\lib\\core\\_build\\wasm\\release\\bundle\\prelude\\prelude.mi:prelude",
+        "-pkg-sources",
+        "moonbitlang/wasm4:E:\\xiangmu2\\wasm4demo\\wasm4",
+        "-target",
+        "wasm",
+        "-workspace-path",
+        "E:\\xiangmu2\\wasm4demo\\wasm4",
+        "-all-pkgs",
+        "E:\\xiangmu2\\wasm4demo\\maze\\_build\\wasm\\debug\\check\\all_pkgs.json"
+      ],
+      "wbtest-check-command": null,
+      "test-check-command": null,
+      "supported-targets": [
+        "Wasm",
+        "WasmGC",
+        "Js",
+        "Native",
+        "LLVM"
+      ]
+    }
+  ],
+  "deps": [
+    "moonbitlang/wasm4"
+  ],
+  "backend": "wasm",
+  "opt_level": "debug",
+  "source": null
+}

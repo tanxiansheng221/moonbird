@@ -1,0 +1,110 @@
+1:Warning: `moon.mod.json` at 'E:\xiangmu2\wasm4demo\maze' is deprecated. Run `moon fmt` to migrate to `moon.mod`.
+2:Warning: `moon.mod.json` at 'E:\xiangmu2\wasm4demo\wasm4' is deprecated. Run `moon fmt` to migrate to `moon.mod`.
+3:Error: [4074] Missing type annotation for the parameter .
+4:Error: [3014]
+5:    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.wasm.mbt:16:1 ]
+6:    │
+7: 16 │ extern "wasm" fn get_addr(#borrow bytes : FixedArray[Byte]) -> Int =
+8:    │ ─────────────┬────────────  
+9:    │              ╰────────────── Inline wasm syntax error: unknown operator ?STRING at 1:1-1:8
+10:────╯
+11:Error: [3002]
+12:    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.wasm.mbt:16:27 ]
+13:    │
+14: 16 │ extern "wasm" fn get_addr(#borrow bytes : FixedArray[Byte]) -> Int =
+15:    │                           ─────────────────────┬────────────────────  
+16:    │                                                ╰────────────────────── Parse error, unexpected token `#attribute`, you may expect parameter name or label.
+17:────╯
+18:Error: [3002]
+19:    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.wasm.mbt:17:3 ]
+20:    │
+21: 17 │   #|(func (param i32) (result i32) (call $moonbit.decref (local.get 0)) (i32.add (local.get 0) (i32.const 8)))
+22:    │   ──────────────────────────────────────────────────────┬─────────────────────────────────────────────────────  
+23:    │                                                         ╰─────────────────────────────────────────────────────── Parse error, unexpected token multiline string, you may expect `pub`, `priv`, `type`, `suberror`, `extenum`, `async`, `fn`, `struct`, `enum`, `let`, `const`, `extern`, `test`, `impl`, `trait`, `enumview`, `#attribute`, `using` or `extend`.
+24:────╯
+25:Error: [4014]
+26:    ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:60:12 ]
+27:    │
+28: 60 │   blit_ffi(get_addr(self.0), x, y, width, height, flags.to_int())
+29:    │            ────────┬───────  
+30:    │                    ╰───────── Expr Type Mismatch
+31:        has type : Unit
+32:        wanted   : Int
+33:────╯
+34:Error: [4014]
+35:    ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:83:5 ]
+36:    │
+37: 83 │     get_addr(self.0),
+38:    │     ────────┬───────  
+39:    │             ╰───────── Expr Type Mismatch
+40:        has type : Unit
+41:        wanted   : Int
+42:────╯
+43:Error: [4014]
+44:     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:135:12 ]
+45:     │
+46: 135 │   text_ffi(get_addr(bytes), x, y)
+47:     │            ───────┬───────  
+48:     │                   ╰───────── Expr Type Mismatch
+49:        has type : Unit
+50:        wanted   : Int
+51:─────╯
+52:Error: [4014]
+53:     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:347:13 ]
+54:     │
+55: 347 │   diskw_ffi(get_addr(bytes), size.reinterpret_as_int())
+56:     │             ───────┬───────  
+57:     │                    ╰───────── Expr Type Mismatch
+58:        has type : Unit
+59:        wanted   : Int
+60:─────╯
+61:Error: [4014]
+62:     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:359:13 ]
+63:     │
+64: 359 │   diskr_ffi(get_addr(bytes), size.reinterpret_as_int())
+65:     │             ───────┬───────  
+66:     │                    ╰───────── Expr Type Mismatch
+67:        has type : Unit
+68:        wanted   : Int
+69:─────╯
+70:Error: [4014]
+71:     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:368:13 ]
+72:     │
+73: 368 │   trace_ffi(get_addr(bytes))
+74:     │             ───────┬───────  
+75:     │                    ╰───────── Expr Type Mismatch
+76:        has type : Unit
+77:        wanted   : Int
+78:─────╯
+79:Warning: [0079]
+80:    ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:88:10 ]
+81:    │
+82: 88 │ } derive(Eq, Default)
+83:    │          ─┬  
+84:    │           ╰── Warning (implicit_impl_as_method): The methods not_equal, equal from `impl Eq for GamePad` are implicit promoted as regular method for `GamePad`. This behavior is deprecated and will be removed in the future. Add a `pub extend GamePad with Eq::{not_equal, equal}` declaration or manually define regular methods for type `GamePad` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+85:────╯
+86:Warning: [0079]
+87:    ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:88:14 ]
+88:    │
+89: 88 │ } derive(Eq, Default)
+90:    │              ───┬───  
+91:    │                 ╰───── Warning (implicit_impl_as_method): The methods default from `impl Default for GamePad` are implicit promoted as regular method for `GamePad`. This behavior is deprecated and will be removed in the future. Add a `pub extend GamePad with Default::{default}` declaration or manually define regular methods for type `GamePad` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+92:────╯
+93:Warning: [0079]
+94:     ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:118:10 ]
+95:     │
+96: 118 │ } derive(Eq, Default)
+97:     │          ─┬  
+98:     │           ╰── Warning (implicit_impl_as_method): The methods not_equal, equal from `impl Eq for Mouse` are implicit promoted as regular method for `Mouse`. This behavior is deprecated and will be removed in the future. Add a `pub extend Mouse with Eq::{not_equal, equal}` declaration or manually define regular methods for type `Mouse` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+99:─────╯
+100:Warning: [0079]
+101:     ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:118:14 ]
+102:     │
+103: 118 │ } derive(Eq, Default)
+104:     │              ───┬───  
+105:     │                 ╰───── Warning (implicit_impl_as_method): The methods default from `impl Default for Mouse` are implicit promoted as regular method for `Mouse`. This behavior is deprecated and will be removed in the future. Add a `pub extend Mouse with Default::{default}` declaration or manually define regular methods for type `Mouse` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+106:─────╯
+107:Failed with 4 warnings, 10 errors.
+108:Error: failed to run build for target Wasm
+110:Caused by:
+111:    failed when building project

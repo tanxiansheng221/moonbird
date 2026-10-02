@@ -1,0 +1,6 @@
+Error: failed to instantiate `E:\xiangmu2\wasm4demo\_build\wasm\debug\test\maze\maze.blackbox_test.wasm`
+
+Caused by:
+    TypeError: WebAssembly.Instance(): Import #4 "env": module is not an object or function
+Error: Failed to run the test: E:\xiangmu2\wasm4demo\_build\wasm\debug\test\maze\maze.blackbox_test.wasm
+The test executable exited with exit code: 1

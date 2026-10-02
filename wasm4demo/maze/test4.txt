@@ -1,0 +1,214 @@
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:45:1 ]
+    │
+ 45 │ ╭─▶ extern "wasm" fn load_byte(offset : Int) -> Byte =
+ 46 │ ├─▶   #|(func (param i32) (result i32) (i32.load8_u (local.get 0)))
+    │ │                                                                     
+    │ ╰───────────────────────────────────────────────────────────────────── inline wasm is unsupported in native backend.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:49:1 ]
+    │
+ 49 │ ╭─▶ extern "wasm" fn store_byte(offset : Int, byte : Byte) =
+ 50 │ ├─▶   #|(func (param i32) (param i32) (i32.store8 (local.get 0) (local.get 1)))
+    │ │                                                                                 
+    │ ╰───────────────────────────────────────────────────────────────────────────────── inline wasm is unsupported in native backend.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:53:1 ]
+    │
+ 53 │ ╭─▶ extern "wasm" fn load_s16(offset : Int) -> Int =
+ 54 │ ├─▶   #|(func (param i32) (result i32) (i32.load16_s (local.get 0)))
+    │ │                                                                      
+    │ ╰────────────────────────────────────────────────────────────────────── inline wasm is unsupported in native backend.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:57:1 ]
+    │
+ 57 │ ╭─▶ extern "wasm" fn load_u16(offset : Int) -> UInt =
+ 58 │ ├─▶   #|(func (param i32) (result i32) (i32.load16_u (local.get 0)))
+    │ │                                                                      
+    │ ╰────────────────────────────────────────────────────────────────────── inline wasm is unsupported in native backend.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:61:1 ]
+    │
+ 61 │ ╭─▶ extern "wasm" fn store_i16(offset : Int, value : Int) =
+ 62 │ ├─▶   #|(func (param i32) (param i32) (i32.store16 (local.get 0) (local.get 1)))
+    │ │                                                                                  
+    │ ╰────────────────────────────────────────────────────────────────────────────────── inline wasm is unsupported in native backend.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:65:1 ]
+    │
+ 65 │ ╭─▶ extern "wasm" fn load_s32(offset : Int) -> Int =
+ 66 │ ├─▶   #|(func (param i32) (result i32) (i32.load (local.get 0)))
+    │ │                                                                  
+    │ ╰────────────────────────────────────────────────────────────────── inline wasm is unsupported in native backend.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:69:1 ]
+    │
+ 69 │ ╭─▶ extern "wasm" fn store_i32(offset : Int, value : Int) =
+ 70 │ ├─▶   #|(func (param i32) (param i32) (i32.store (local.get 0) (local.get 1)))
+    │ │                                                                                
+    │ ╰──────────────────────────────────────────────────────────────────────────────── inline wasm is unsupported in native backend.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:73:1 ]
+    │
+ 73 │ ╭─▶ fn blit_ffi(
+    ┆ ┆   
+ 80 │ ├─▶ ) = "env" "blit"
+    │ │                      
+    │ ╰────────────────────── import is unsupported in native backend, use extern "C" instead.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:83:1 ]
+    │
+ 83 │ ╭─▶ fn blit_sub_ffi(
+    ┆ ┆   
+ 93 │ ├─▶ ) = "env" "blitSub"
+    │ │                         
+    │ ╰───────────────────────── import is unsupported in native backend, use extern "C" instead.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:96:1 ]
+    │
+ 96 │ fn text_ffi(str : Int, x : Int, y : Int) = "env" "text"
+    │ ───────────────────────────┬───────────────────────────  
+    │                            ╰───────────────────────────── import is unsupported in native backend, use extern "C" instead.
+────╯
+Error: [4156]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:99:1 ]
+    │
+ 99 │ fn tone_ffi(frequency : UInt, duration : UInt, volume : UInt, flags : UInt) = "env" "tone"
+    │ ─────────────────────────────────────────────┬────────────────────────────────────────────  
+    │                                              ╰────────────────────────────────────────────── import is unsupported in native backend, use extern "C" instead.
+────╯
+Error: [4156]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:102:1 ]
+     │
+ 102 │ fn trace_ffi(offset : Int) = "env" "trace"
+     │ ─────────────────────┬────────────────────  
+     │                      ╰────────────────────── import is unsupported in native backend, use extern "C" instead.
+─────╯
+Error: [4156]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:105:1 ]
+     │
+ 105 │ fn diskr_ffi(ptr : Int, size : Int) -> Int = "env" "diskr"
+     │ ─────────────────────────────┬────────────────────────────  
+     │                              ╰────────────────────────────── import is unsupported in native backend, use extern "C" instead.
+─────╯
+Error: [4156]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.mbt:108:1 ]
+     │
+ 108 │ fn diskw_ffi(ptr : Int, size : Int) -> Int = "env" "diskw"
+     │ ─────────────────────────────┬────────────────────────────  
+     │                              ╰────────────────────────────── import is unsupported in native backend, use extern "C" instead.
+─────╯
+Error: [4021]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:60:12 ]
+    │
+ 60 │   blit_ffi(get_addr(self.0), x, y, width, height, flags.to_int())
+    │            ────┬───  
+    │                ╰───── The value identifier get_addr is unbound.
+────╯
+Error: [4021]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:83:5 ]
+    │
+ 83 │     get_addr(self.0),
+    │     ────┬───  
+    │         ╰───── The value identifier get_addr is unbound.
+────╯
+Error: [4156]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:100:1 ]
+     │
+ 100 │ pub fn line(x1 : Int, y1 : Int, x2 : Int, y2 : Int) = "env" "line"
+     │ ─────────────────────────────────┬────────────────────────────────  
+     │                                  ╰────────────────────────────────── import is unsupported in native backend, use extern "C" instead.
+─────╯
+Error: [4156]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:106:1 ]
+     │
+ 106 │ pub fn hline(x : Int, y : Int, len : Int) = "env" "hline"
+     │ ────────────────────────────┬────────────────────────────  
+     │                             ╰────────────────────────────── import is unsupported in native backend, use extern "C" instead.
+─────╯
+Error: [4156]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:112:1 ]
+     │
+ 112 │ pub fn vline(x : Int, y : Int, len : Int) = "env" "vline"
+     │ ────────────────────────────┬────────────────────────────  
+     │                             ╰────────────────────────────── import is unsupported in native backend, use extern "C" instead.
+─────╯
+Error: [4156]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:118:1 ]
+     │
+ 118 │ pub fn oval(x : Int, y : Int, width : Int, height : Int) = "env" "oval"
+     │ ───────────────────────────────────┬───────────────────────────────────  
+     │                                    ╰───────────────────────────────────── import is unsupported in native backend, use extern "C" instead.
+─────╯
+Error: [4156]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:124:1 ]
+     │
+ 124 │ pub fn rect(x : Int, y : Int, width : Int, height : Int) = "env" "rect"
+     │ ───────────────────────────────────┬───────────────────────────────────  
+     │                                    ╰───────────────────────────────────── import is unsupported in native backend, use extern "C" instead.
+─────╯
+Error: [4021]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:135:12 ]
+     │
+ 135 │   text_ffi(get_addr(bytes), x, y)
+     │            ────┬───  
+     │                ╰───── The value identifier get_addr is unbound.
+─────╯
+Error: [4021]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:347:13 ]
+     │
+ 347 │   diskw_ffi(get_addr(bytes), size.reinterpret_as_int())
+     │             ────┬───  
+     │                 ╰───── The value identifier get_addr is unbound.
+─────╯
+Error: [4021]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:359:13 ]
+     │
+ 359 │   diskr_ffi(get_addr(bytes), size.reinterpret_as_int())
+     │             ────┬───  
+     │                 ╰───── The value identifier get_addr is unbound.
+─────╯
+Error: [4021]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:368:13 ]
+     │
+ 368 │   trace_ffi(get_addr(bytes))
+     │             ────┬───  
+     │                 ╰───── The value identifier get_addr is unbound.
+─────╯
+Warning: [0079]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:88:10 ]
+    │
+ 88 │ } derive(Eq, Default)
+    │          ─┬  
+    │           ╰── Warning (implicit_impl_as_method): The methods not_equal, equal from `impl Eq for GamePad` are implicit promoted as regular method for `GamePad`. This behavior is deprecated and will be removed in the future. Add a `pub extend GamePad with Eq::{not_equal, equal}` declaration or manually define regular methods for type `GamePad` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+────╯
+Warning: [0079]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:88:14 ]
+    │
+ 88 │ } derive(Eq, Default)
+    │              ───┬───  
+    │                 ╰───── Warning (implicit_impl_as_method): The methods default from `impl Default for GamePad` are implicit promoted as regular method for `GamePad`. This behavior is deprecated and will be removed in the future. Add a `pub extend GamePad with Default::{default}` declaration or manually define regular methods for type `GamePad` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+────╯
+Warning: [0079]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:118:10 ]
+     │
+ 118 │ } derive(Eq, Default)
+     │          ─┬  
+     │           ╰── Warning (implicit_impl_as_method): The methods not_equal, equal from `impl Eq for Mouse` are implicit promoted as regular method for `Mouse`. This behavior is deprecated and will be removed in the future. Add a `pub extend Mouse with Eq::{not_equal, equal}` declaration or manually define regular methods for type `Mouse` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+─────╯
+Warning: [0079]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:118:14 ]
+     │
+ 118 │ } derive(Eq, Default)
+     │              ───┬───  
+     │                 ╰───── Warning (implicit_impl_as_method): The methods default from `impl Default for Mouse` are implicit promoted as regular method for `Mouse`. This behavior is deprecated and will be removed in the future. Add a `pub extend Mouse with Default::{default}` declaration or manually define regular methods for type `Mouse` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+─────╯

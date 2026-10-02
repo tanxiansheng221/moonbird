@@ -1,0 +1,111 @@
+Warning: `moon.mod.json` at 'E:\xiangmu2\wasm4demo\maze' is deprecated. Run `moon fmt` to migrate to `moon.mod`.
+Warning: `moon.mod.json` at 'E:\xiangmu2\wasm4demo\wasm4' is deprecated. Run `moon fmt` to migrate to `moon.mod`.
+Error: [4074] Missing type annotation for the parameter .
+Error: [3014]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.wasm.mbt:16:1 ]
+    │
+ 16 │ extern "wasm" fn get_addr(#borrow bytes : FixedArray[Byte]) -> Int =
+    │ ─────────────┬────────────  
+    │              ╰────────────── Inline wasm syntax error: unknown operator ?STRING at 1:1-1:8
+────╯
+Error: [3002]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.wasm.mbt:16:27 ]
+    │
+ 16 │ extern "wasm" fn get_addr(#borrow bytes : FixedArray[Byte]) -> Int =
+    │                           ─────────────────────┬────────────────────  
+    │                                                ╰────────────────────── Parse error, unexpected token `#attribute`, you may expect parameter name or label.
+────╯
+Error: [3002]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\ffi.wasm.mbt:17:3 ]
+    │
+ 17 │   #|(func (param i32) (result i32) (call $moonbit.decref (local.get 0)) (i32.add (local.get 0) (i32.const 8)))
+    │   ──────────────────────────────────────────────────────┬─────────────────────────────────────────────────────  
+    │                                                         ╰─────────────────────────────────────────────────────── Parse error, unexpected token multiline string, you may expect `pub`, `priv`, `type`, `suberror`, `extenum`, `async`, `fn`, `struct`, `enum`, `let`, `const`, `extern`, `test`, `impl`, `trait`, `enumview`, `#attribute`, `using` or `extend`.
+────╯
+Error: [4014]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:60:12 ]
+    │
+ 60 │   blit_ffi(get_addr(self.0), x, y, width, height, flags.to_int())
+    │            ────────┬───────  
+    │                    ╰───────── Expr Type Mismatch
+        has type : Unit
+        wanted   : Int
+────╯
+Error: [4014]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:83:5 ]
+    │
+ 83 │     get_addr(self.0),
+    │     ────────┬───────  
+    │             ╰───────── Expr Type Mismatch
+        has type : Unit
+        wanted   : Int
+────╯
+Error: [4014]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:135:12 ]
+     │
+ 135 │   text_ffi(get_addr(bytes), x, y)
+     │            ───────┬───────  
+     │                   ╰───────── Expr Type Mismatch
+        has type : Unit
+        wanted   : Int
+─────╯
+Error: [4014]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:347:13 ]
+     │
+ 347 │   diskw_ffi(get_addr(bytes), size.reinterpret_as_int())
+     │             ───────┬───────  
+     │                    ╰───────── Expr Type Mismatch
+        has type : Unit
+        wanted   : Int
+─────╯
+Error: [4014]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:359:13 ]
+     │
+ 359 │   diskr_ffi(get_addr(bytes), size.reinterpret_as_int())
+     │             ───────┬───────  
+     │                    ╰───────── Expr Type Mismatch
+        has type : Unit
+        wanted   : Int
+─────╯
+Error: [4014]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\function.mbt:368:13 ]
+     │
+ 368 │   trace_ffi(get_addr(bytes))
+     │             ───────┬───────  
+     │                    ╰───────── Expr Type Mismatch
+        has type : Unit
+        wanted   : Int
+─────╯
+Warning: [0079]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:88:10 ]
+    │
+ 88 │ } derive(Eq, Default)
+    │          ─┬  
+    │           ╰── Warning (implicit_impl_as_method): The methods not_equal, equal from `impl Eq for GamePad` are implicit promoted as regular method for `GamePad`. This behavior is deprecated and will be removed in the future. Add a `pub extend GamePad with Eq::{not_equal, equal}` declaration or manually define regular methods for type `GamePad` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+────╯
+Warning: [0079]
+    ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:88:14 ]
+    │
+ 88 │ } derive(Eq, Default)
+    │              ───┬───  
+    │                 ╰───── Warning (implicit_impl_as_method): The methods default from `impl Default for GamePad` are implicit promoted as regular method for `GamePad`. This behavior is deprecated and will be removed in the future. Add a `pub extend GamePad with Default::{default}` declaration or manually define regular methods for type `GamePad` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+────╯
+Warning: [0079]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:118:10 ]
+     │
+ 118 │ } derive(Eq, Default)
+     │          ─┬  
+     │           ╰── Warning (implicit_impl_as_method): The methods not_equal, equal from `impl Eq for Mouse` are implicit promoted as regular method for `Mouse`. This behavior is deprecated and will be removed in the future. Add a `pub extend Mouse with Eq::{not_equal, equal}` declaration or manually define regular methods for type `Mouse` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+─────╯
+Warning: [0079]
+     ╭─[ E:\xiangmu2\wasm4demo\wasm4\memory.mbt:118:14 ]
+     │
+ 118 │ } derive(Eq, Default)
+     │              ───┬───  
+     │                 ╰───── Warning (implicit_impl_as_method): The methods default from `impl Default for Mouse` are implicit promoted as regular method for `Mouse`. This behavior is deprecated and will be removed in the future. Add a `pub extend Mouse with Default::{default}` declaration or manually define regular methods for type `Mouse` instead. If the promotion is not desirable, add `#deprecated` on the `extend` declaration.
+─────╯
+Failed with 4 warnings, 10 errors.
+Error: failed to run build for target Wasm
+
+Caused by:
+    failed when building project

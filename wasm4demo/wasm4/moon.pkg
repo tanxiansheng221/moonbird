@@ -1,0 +1,4 @@
+options(
+  targets: { "ffi.wasm-gc.mbt": [ "wasm-gc" ], "ffi.wasm.mbt": [ "wasm" ] },
+  warn: "-55-79",
+)
