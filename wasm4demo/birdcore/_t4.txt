@@ -1,0 +1,61 @@
+﻿// 怒鸟弹弓大战 — core 物理模块（M1）
+// 纯逻辑，不依赖平台 API；质点动力学 + 简化形状（详见 docs/02-物理引擎设计.md）
+
+///|
+pub(all) struct Vec2 {
+  x : Double
+  y : Double
+}
+
+///|
+pub fn Vec2::add(a : Vec2, b : Vec2) -> Vec2 {
+  { x: a.x + b.x, y: a.y + b.y }
+}
+
+///|
+pub fn Vec2::sub(a : Vec2, b : Vec2) -> Vec2 {
+  { x: a.x - b.x, y: a.y - b.y }
+}
+
+///|
+pub fn Vec2::mul(a : Vec2, s : Double) -> Vec2 {
+  { x: a.x * s, y: a.y * s }
+}
+
+///|
+pub fn Vec2::dot(a : Vec2, b : Vec2) -> Double {
+  a.x * b.x + a.y * b.y
+}
+
+///|
+pub fn Vec2::len(a : Vec2) -> Double {
+  (a.x * a.x + a.y * a.y).sqrt()
+}
+
+///|
+fn dabs(v : Double) -> Double {
+  if v < 0.0 { -v } else { v }
+}
+
+///|
+pub fn Vec2::norm(a : Vec2) -> Vec2 {
+  let l = Vec2::len(a)
+  if l < 1.0e-9 {
+    { x: 0.0, y: 0.0 }
+  } else {
+    { x: a.x / l, y: a.y / l }
+  }
+}
+
+// ---------- 材质 ----------
+
+///|
+pub(all) enum Material {
+  Wood
+  Ice
+  Stone
+  Pig
+  Bird
+  Tnt
+  Ground
+}

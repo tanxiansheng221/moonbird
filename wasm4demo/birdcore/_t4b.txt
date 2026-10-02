@@ -1,0 +1,31 @@
+﻿  }
+  let vrx = b.vx - a.vx
+  let vry = b.vy - a.vy
+  let vn = -(vrx * ct.nx + vry * ct.ny)
+  if vn <= 0.0 {
+    return None
+  }
+  // 冲击强度 = 法线相对速度 * sqrt(较小质量)，直接与阈值比较
+  let m = Entity::mass(a).min(Entity::mass(b))
+  let impact = vn * m.sqrt()
+  let apply : (Entity) -> DamageEvent? = fn(t : Entity) -> DamageEvent? {
+    let th = mat_threshold(t.mat)
+    if impact > th {
+      let mut dmg = impact - th
+      match (t.kind, a.kind, b.kind) {
+        (PigK, BirdK, _) | (PigK, _, BirdK) => dmg = dmg * 2.0
+        _ => ()
+      }
+      Some({ target: t, amount: dmg })
+    } else {
+      None
+    }
+  }
+  // 两侧都可能受伤（Ground 不受伤）
+  if a.mat is Ground {
+    if b.mat is Ground {
+      None
+    } else {
+      apply(b)
+    }
+  } else {

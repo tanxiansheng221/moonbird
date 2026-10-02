@@ -1,0 +1,7 @@
+import {
+  "birdcore/core"
+}
+
+options(
+  warn: "-55-79-29",
+)

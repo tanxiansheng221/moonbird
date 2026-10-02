@@ -1,0 +1,37 @@
+﻿pub(all) struct World {
+  entities : Array[Entity]
+}
+
+///|
+pub fn World::new() -> World {
+  { entities: [] }
+}
+
+///|
+pub fn World::add(self : World, e : Entity) -> Unit {
+  self.entities.push(e)
+}
+
+///|
+pub fn World::step(self : World, dt : Double) -> Array[DamageEvent] {
+  // 积分
+  for e in self.entities {
+    Entity::integrate(e, dt)
+  }
+  // 碰撞解算 2 遍迭代（塔式堆叠稳定性）
+  let damages : Array[DamageEvent] = []
+  for iter in 0..<2 {
+    let n = self.entities.length()
+    for i in 0..<n {
+      for j in (i + 1)..<n {
+        let a = self.entities[i]
+        let b = self.entities[j]
+        // 宽相：外接圆粗判
+        let dx = b.px - a.px
+        let dy = b.py - a.py
+        let rr = Entity::radius(a) + Entity::radius(b)
+        if dx * dx + dy * dy < rr * rr {
+          match collide(a, b) {
+            Some(ct) => {
+              resolve(a, b, ct)
+              match impact_damage(a, b, ct) {

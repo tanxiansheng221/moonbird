@@ -1,0 +1,134 @@
+﻿  } else {
+    match apply(a) {
+      Some(ev) => Some(ev)
+      None => if b.mat is Ground { None } else { apply(b) }
+    }
+  }
+}
+
+// ---------- 爆炸（M2：TNT / 黑鸟） ----------
+
+///|
+pub(all) struct BlastEvent {
+  target : Entity
+  amount : Double
+}
+
+///|
+/// 径向爆炸：对半径内非静态体施加衰减冲量（1 - d/r），并对可受伤体扣血。
+/// 返回受击事件（Ground 不受冲量也不受伤）。
+pub fn World::explode(
+  self : World,
+  ex : Double,
+  ey : Double,
+  radius : Double,
+  power : Double,
+  damage : Double,
+) -> Array[BlastEvent] {
+  let hits : Array[BlastEvent] = []
+  for e in self.entities {
+    match e.shape {
+      Static => continue
+      _ => ()
+    }
+    let dx = e.px - ex
+    let dy = e.py - ey
+    let d = (dx * dx + dy * dy).sqrt()
+    if d >= radius {
+      continue
+    }
+    let falloff = 1.0 - d / radius
+    // 冲量方向：由爆心向外；爆心正上方给主要向上推力
+    let nx = if d < 1.0e-6 { 0.0 } else { dx / d }
+    let ny = if d < 1.0e-6 { -1.0 } else { dy / d }
+    Entity::wake(e)
+    let im = Entity::inv_mass(e)
+    if im > 0.0 {
+      let dv = power * falloff * im
+      e.vx += nx * dv
+      e.vy += ny * dv
+    }
+    if !(e.mat is Ground) && !(e.dead) {
+      hits.push({ target: e, amount: damage * falloff })
+    }
+  }
+  hits
+}
+
+///|
+let rng_state : Ref[UInt] = Ref(0x9E3779B9U)
+
+///|
+/// xorshift32 伪随机数 [0,1)
+pub fn rand01() -> Double {
+  let mut x = rng_state.val
+  x = x ^ (x << 13)
+  x = x ^ (x >> 17)
+  x = x ^ (x << 5)
+  rng_state.val = x
+  x.to_double() / 4294967296.0
+}
+
+///|
+/// [lo, hi) 区间伪随机数
+pub fn rand_range(lo : Double, hi : Double) -> Double {
+  lo + rand01() * (hi - lo)
+}
+
+///|
+pub const TNT_RADIUS : Double = 55.0
+
+///|
+pub const TNT_POWER : Double = 260.0
+
+///|
+pub const TNT_DAMAGE : Double = 180.0
+
+///|
+/// 黑鸟自爆威力（半径略小，伤害略低）
+pub const BOMB_RADIUS : Double = 48.0
+
+///|
+pub const BOMB_POWER : Double = 230.0
+
+///|
+pub const BOMB_DAMAGE : Double = 150.0
+
+// ---------- 固定步长时钟（accumulator） ----------
+
+///|
+pub(all) struct Clock {
+  mut acc : Double // 累加器
+  mut steps : Int // 本帧实际执行步数
+  max_steps : Int // 单帧最大追步数（防死亡螺旋）
+}
+
+///|
+pub fn Clock::new(
+  _dt~ : Double = DT, // 预留：可调步长（当前固定 DT）
+  max_steps~ : Int = 3,
+) -> Clock {
+  { acc: 0.0, steps: 0, max_steps }
+}
+
+///|
+/// 帧间隔计入累加器，落后时最多追 max_steps 步；积压过多则丢弃防螺旋。
+/// 返回本帧执行的步数。
+pub fn Clock::tick(self : Clock, frame_dt : Double, step : () -> Unit) -> Int {
+  self.acc += frame_dt
+  let mut n = 0
+  while self.acc >= DT && n < self.max_steps {
+    step()
+    self.acc -= DT
+    n += 1
+  }
+  if self.acc > DT * self.max_steps.to_double() {
+    self.acc = 0.0
+  }
+  self.steps = n
+  n
+}
+
+// ---------- 世界 ----------
+
+///|
