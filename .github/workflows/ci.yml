@@ -1,0 +1,46 @@
+name: CI
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> $GITHUB_PATH
+
+      - name: Toolchain version
+        run: moonc -v && moon version --all
+
+      - name: Build (wasm-gc release)
+        working-directory: wasm4demo
+        run: moon build --target wasm-gc --release
+
+      - name: Build (wasm release)
+        working-directory: wasm4demo
+        run: moon build --target wasm --release
+
+      - name: Setup Node 22 (for test runner)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Unit tests (via test_runner, WASM-4 env stubs)
+        working-directory: wasm4demo
+        run: |
+          set -e
+          # 逐个跑 _build 里的 *test*.wasm（白盒/黑盒测试产物），用自建 runner 注入 WASM-4 env 桩
+          find _build -name '*test*.wasm' | while read -r f; do
+            echo "RUN $f"
+            node test_runner.mjs "$f"
+          done
+
+      - name: Smoke (120 frames real run)
+        working-directory: wasm4demo
+        run: node test_runner.mjs _build/wasm-gc/release/build/maze/maze.wasm 120

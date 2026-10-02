@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main, master]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> $GITHUB_PATH
+      - name: Build game wasm
+        working-directory: wasm4demo
+        run: moon build --target wasm-gc --release
+      - name: Assemble site
+        run: |
+          mkdir -p _site/game
+          if [ -d wasm4demo/_pages ]; then cp -r wasm4demo/_pages/* _site/; fi
+          cp wasm4demo/_build/wasm-gc/release/build/maze/maze.wasm _site/game/cart.wasm
+          if [ ! -f _site/index.html ]; then
+            echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Angry Duck</title></head><body style="background:#1b2735;color:#fff;text-align:center;padding:40px"><h1>Angry Duck - MoonBit Physics</h1><p>cart.wasm built. Wire the WASM-4 web runtime to play.</p></body></html>' > _site/index.html
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
