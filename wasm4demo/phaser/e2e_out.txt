@@ -1,0 +1,32 @@
+start {"lv":1,"ph":0,"sc":0,"won":false,"birds":1}
+shot1 -> lv1 score0 birds1
+shot2 -> lv1 score0 birds1
+shot3 -> lv1 score0 birds1
+shot4 -> lv1 score0 birds1
+shot5 -> lv1 score0 birds1
+shot6 -> lv1 score0 birds1
+shot7 -> lv1 score0 birds1
+shot8 -> lv1 score0 birds1
+shot9 -> lv1 score0 birds1
+shot10 -> lv1 score0 birds1
+shot11 -> lv1 score0 birds1
+shot12 -> lv1 score0 birds1
+shot13 -> lv1 score0 birds1
+shot14 -> lv1 score0 birds1
+shot15 -> lv1 score0 birds1
+shot16 -> lv1 score0 birds1
+shot17 -> lv1 score0 birds1
+shot18 -> lv1 score0 birds1
+shot19 -> lv1 score0 birds1
+shot20 -> lv1 score0 birds1
+shot21 -> lv1 score0 birds1
+shot22 -> lv1 score0 birds1
+shot23 -> lv1 score0 birds1
+shot24 -> lv1 score0 birds1
+shot25 -> lv1 score0 birds1
+shot26 -> lv1 score0 birds1
+shot27 -> lv1 score0 birds1
+shot28 -> lv1 score0 birds1
+shot29 -> lv1 score0 birds1
+shot30 -> lv1 score0 birds1
+final {"lv":1,"ph":0,"sc":0,"won":false,"birds":1} errors: 无

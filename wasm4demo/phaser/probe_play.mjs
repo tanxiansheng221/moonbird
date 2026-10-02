@@ -1,0 +1,14 @@
+import * as G from '../_build/js/debug/build/webgame/webgame.js';
+const T = t => (Array.isArray(t) ? t : Object.keys(t).sort((a, b) => +a.slice(1) - +b.slice(1)).map(k => t[k]));
+const g = G.api_new_game();
+console.log('level', G.api_get_level(g), 'phase', G.api_get_phase(g), 'ents', G.api_get_entity_count(g));
+console.log('bird0', G.api_get_entity(g, 0));
+for (let i = 0; i < 120; i++) G.api_update(g);
+console.log('after2s bird0', G.api_get_entity(g, 0), 'phase', G.api_get_phase(g));
+G.api_pointer(g, 150, 430, true); G.api_pointer(g, 140, 430, false);
+for (let i = 0; i < 300; i++) G.api_update(g);
+console.log('after shot phase', G.api_get_phase(g), 'score', G.api_get_score(g), 'ents', G.api_get_entity_count(g));
+G.api_pointer(g, 150, 430, true); G.api_pointer(g, 130, 440, false);
+for (let i = 0; i < 60; i++) G.api_update(g); G.api_skip_shot(g);
+for (let i = 0; i < 600; i++) G.api_update(g);
+console.log('final phase', G.api_get_phase(g), 'score', G.api_get_score(g), 'level', G.api_get_level(g), 'ents', G.api_get_entity_count(g));

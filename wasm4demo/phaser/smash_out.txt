@@ -1,0 +1,7 @@
+f0 fly bird@97,402
+f15 fly bird@270,388
+f30 fly bird@443,392
+f34 Δn=-7 bird@none phase=2 blast=true impact=1 boom=0 score=1100
+f94 Δn=11 bird@180,390 phase=0 blast=false impact=0 boom=0 score=2100
+  new: 2:2@540,435 | 2:2@612,435 | 3:5@576,435 | 2:1@576,396 | 2:2@552,366 | 2:2@600,366 | 2:1@576,342 | 1:4@576,441 | 1:4@576,315 | 0:0@180,390
+FINAL score=2100 won=false

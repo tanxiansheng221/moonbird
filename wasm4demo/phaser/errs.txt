@@ -1,0 +1,3 @@
+ReferenceError: Phaser is not defined
+    at createWorldTexture (http://localhost:5199/src/art.js:38:13)
+    at http://localhost:5199/src/main.js:7:1

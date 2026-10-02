@@ -1,0 +1,13 @@
+L1 OK   ents 17 -> 17 maxShift 0.00 score 0 ev_boom 0
+L2 OK   ents 19 -> 19 maxShift 0.00 score 0 ev_boom 0
+L3 OK   ents 22 -> 22 maxShift 0.00 score 0 ev_boom 0
+L4 OK   ents 16 -> 16 maxShift 0.00 score 0 ev_boom 0
+L5 OK   ents 19 -> 19 maxShift 0.00 score 0 ev_boom 0
+L6 OK   ents 16 -> 16 maxShift 0.00 score 0 ev_boom 0
+L7 OK   ents 18 -> 18 maxShift 0.00 score 0 ev_boom 0
+L8 OK   ents 19 -> 19 maxShift 0.00 score 0 ev_boom 0
+L9 OK   ents 18 -> 18 maxShift 0.00 score 0 ev_boom 0
+L10 OK   ents 19 -> 19 maxShift 0.00 score 0 ev_boom 0
+L11 OK   ents 18 -> 18 maxShift 0.00 score 0 ev_boom 0
+L12 OK   ents 21 -> 21 maxShift 0.00 score 0 ev_boom 0
+ALL LEVELS STABLE

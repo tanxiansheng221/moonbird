@@ -1,0 +1,10 @@
+import { chromium } from 'playwright';
+const browser = await chromium.launch();
+const page = await browser.newPage();
+page.on('pageerror', e => console.log('PAGEERROR:', e.message));
+page.on('console', m => console.log('CONSOLE[' + m.type() + ']:', m.text()));
+await page.goto('http://localhost:5199/', { waitUntil: 'load' });
+await page.waitForTimeout(4000);
+const html = await page.evaluate(() => document.querySelector('#game')?.innerHTML?.slice(0, 200));
+console.log('GAME_DIV:', html);
+await browser.close();
