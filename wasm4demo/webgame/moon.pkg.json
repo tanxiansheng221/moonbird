@@ -1,0 +1,40 @@
+{
+  "import": [
+    "birdcore/core"
+  ],
+  "wbtest-import": [
+    "birdcore/core"
+  ],
+  "warn": "-55-79",
+  "link": {
+    "js": {
+      "exports": [
+        "api_new_game",
+        "api_update",
+        "api_pointer",
+        "api_use_skill",
+        "api_skip_shot",
+        "api_get_level",
+        "api_load_level",
+        "api_get_score",
+        "api_get_won",
+        "api_get_phase",
+        "api_get_bird_type",
+        "api_get_skill_used",
+        "api_get_dragging",
+        "api_get_drag_x",
+        "api_get_drag_y",
+        "api_get_cam_x",
+        "api_get_entity_count",
+        "api_get_entity",
+        "api_get_particle_count",
+        "api_get_particle",
+        "api_get_bird_count",
+        "api_traj_point",
+        "api_take_events",
+        "api_get_shake",
+        "api_consts"
+      ]
+    }
+  }
+}

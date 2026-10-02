@@ -1,0 +1,12 @@
+import * as G from '../_build/js/debug/build/webgame/webgame.js';
+const T = t => (Array.isArray(t) ? t : Object.keys(t).sort((a, b) => +a.slice(1) - +b.slice(1)).map(k => t[k]));
+const [N, AX, AY, GY, W, DR] = T(G.api_consts());
+console.log('NUM_LEVELS', N, 'ANCHOR', AX, AY, 'DRAG_R', DR);
+const g = G.api_new_game();
+G.api_pointer(g, AX, AY + 30, true);
+console.log('down@anchor+30 drag=', G.api_get_dragging(g), 'dx=', G.api_get_drag_x(g), 'dy=', G.api_get_drag_y(g));
+G.api_pointer(g, AX - 60, AY + 70, true);
+G.api_pointer(g, AX - 60, AY + 70, false);
+console.log('after release phase=', G.api_get_phase(g));
+for (let i = 0; i < 120; i++) G.api_update(g);
+console.log('after 120 ticks phase=', G.api_get_phase(g), 'entities=', G.api_get_entity_count(g));
