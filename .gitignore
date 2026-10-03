@@ -1,13 +1,16 @@
 # 临时/本地工具
 .aimcode/
 node22.zip
+node20.zip
 _tmp_ctx.txt
 wasm4demo/.tools/
-wasm4demo/_pages/node_modules/
+wasm4demo/$null
 
 # MoonBit 构建产物
 wasm4demo/target/
 wasm4demo/_build/
+wasm4demo/maze/_build/
+wasm4demo/_pages/node_modules/
 wasm4demo/_pages/game/cart.wasm
 wasm4demo/_pages/page.png
 wasm4demo/_pages/package-lock.json
@@ -16,7 +19,5 @@ wasm4demo/_pages/package-lock.json
 node-v*/
 node_modules/
 *.log
-
-# MoonBit 构建缓存
 .moon_db
 .moon-lock

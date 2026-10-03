@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: moonbitlang/setup-moonbit@v1
+      - name: Build wasm
+        run: |
+          cd wasm4demo
+          moon build --target wasm-gc --release
+      - name: Assemble pages
+        run: |
+          mkdir -p site/game
+          cp wasm4demo/_build/wasm-gc/release/build/maze/maze.wasm site/game/cart.wasm
+          RT=$(find "$(npm root -g 2>/dev/null || echo /tmp)" -path '*wasm4/assets/runtime/slim' 2>/dev/null | head -1)
+          if [ -n "$RT" ]; then cp "$RT/wasm4.js" "$RT/wasm4.css" site/game/; fi
+          touch site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
