@@ -18,11 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup MoonBit
-        uses: moonbitlang/setup-moonbit@v1
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> $GITHUB_PATH
+
       - name: Build webgame (js target)
         working-directory: wasm4demo
         run: moon build --target js --release
+
       - name: Assemble site (webgame + Phaser CDN)
         run: |
           mkdir -p site
@@ -30,11 +35,13 @@ jobs:
           cp wasm4demo/phaser/src/art.js site/art.js
           sed "s#'../../_build/js/debug/build/webgame/webgame.js'#'./webgame.js'#" wasm4demo/phaser/src/game.js > site/game.js
           cp wasm4demo/_build/js/release/build/webgame/webgame.js site/webgame.js
-          printf '%s\n' '<!DOCTYPE html>' '<html lang="zh">' '<head>' '<meta charset="UTF-8">' '<meta name="viewport" content="width=device-width,initial-scale=1">' '<title>MoonBird</title>' '<script type="importmap">{"imports":{"phaser":"https://cdn.jsdelivr.net/npm/phaser@3.87.0/dist/phaser.module.min.js"}}<\/script>' '</head>' '<body style="margin:0;height:100%%;background:#1b2735;display:flex;align-items:center;justify-content:center">' '<div id="game"></div>' '<script type="module" src="./main.js"><\/script>' '</body>' '</html>' > site/index.html
+          printf '%s\n'             '<!DOCTYPE html>' '<html lang="zh">' '<head>' '<meta charset="UTF-8">'             '<meta name="viewport" content="width=device-width,initial-scale=1">' '<title>MoonBird</title>'             '<script type="importmap">{"imports":{"phaser":"https://cdn.jsdelivr.net/npm/phaser@3.87.0/dist/phaser.module.min.js"}}<\/script>'             '</head>' '<body style="margin:0;height:100%;background:#1b2735;display:flex;align-items:center;justify-content:center">'             '<div id="game"></div>' '<script type="module" src="./main.js"><\/script>' '</body>' '</html>' > site/index.html
           touch site/.nojekyll
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
