@@ -19,9 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup MoonBit
-        run: |
-          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash -s -- 0.10.14
-          echo "$HOME/.moon/bin" >> $GITHUB_PATH
+        uses: moonbitlang/setup-moonbit@v1
       - name: Build webgame (js target)
         working-directory: wasm4demo
         run: moon build --target js --release
