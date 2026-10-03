@@ -1,9 +1,9 @@
 {
   "import": [
-    "birdcore/core"
+    "tanxiansheng221/birdcore/core"
   ],
   "wbtest-import": [
-    "birdcore/core"
+    "tanxiansheng221/birdcore/core"
   ],
   "warn": "-55-79",
   "link": {

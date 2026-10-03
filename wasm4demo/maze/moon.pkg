@@ -1,6 +1,6 @@
 import {
   "moonbitlang/wasm4",
-  "birdcore/core",
+  "tanxiansheng221/birdcore/core",
 }
 
 options(

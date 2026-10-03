@@ -4,5 +4,5 @@ license = "ISC"
 
 import {
   "moonbitlang/wasm4@0.2.9",
-  "birdcore@0.0.0",
+  "tanxiansheng221/birdcore@0.1.0",
 }
