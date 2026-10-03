@@ -1,5 +1,5 @@
 // 怒鸭大战
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';   // phaser.esm.js 只有命名导出（无 default）
 import * as G from '../../_build/js/debug/build/webgame/webgame.js';
 
 import { buildTextures } from './art.js';
