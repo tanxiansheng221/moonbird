@@ -1,7 +1,7 @@
 # MoonBird（怒鸭大战）
 
 > 用 MoonBit 实现的弹弓物理射击游戏 —— 自研 2D 物理引擎 + 12 关 + 4 种技能鸟 + TNT 连环爆炸。
-![Uploading 微信图片_20261003201503_911_30.png…]()
+![怒鸭大战 — 在线试玩](docs/images/game-main.png)
 
 ## 双形态
 
